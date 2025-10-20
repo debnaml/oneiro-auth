@@ -2,6 +2,8 @@
 
 A minimal Next.js web companion for the Oneiro app that handles Supabase email verification and password resets.
 
+> 🚀 Ready for deployment to Vercel
+
 ## Features
 
 - **Email Verification**: `/verify` - Handles email verification tokens from Supabase
