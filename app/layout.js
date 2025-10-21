@@ -9,21 +9,23 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" style={{background: '#0D0D0D'}}>
       <body style={{background: '#0D0D0D', color: '#FFFFFF'}} className="min-h-screen">
-        <header className="w-full p-6 relative">
-          <div className="max-w-md mx-auto">
-            <div className="flex items-center justify-center mb-8 floating">
+        <div className="flex flex-col min-h-screen">
+          <div className="flex-1 flex flex-col justify-center max-w-md mx-auto w-full px-4">
+            <div className="flex items-center justify-center mb-12">
               <img 
                 src="/Oneiro-Logo.svg" 
                 alt="Oneiro" 
-                className="h-16 w-auto"
-                style={{filter: 'drop-shadow(0 2px 8px rgba(168, 85, 247, 0.3))'}}
+                className="h-48 w-auto"
+                style={{
+                  filter: 'drop-shadow(0 4px 12px rgba(168, 85, 247, 0.4))',
+                }}
               />
             </div>
+            <main>
+              {children}
+            </main>
           </div>
-        </header>
-        <main className="container mx-auto px-4 max-w-md">
-          {children}
-        </main>
+        </div>
       </body>
     </html>
   )

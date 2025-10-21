@@ -40,7 +40,7 @@ export default function VerifyPage() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-[50vh]">
+    <div>
       <div className="glass-card w-full text-center">
         <div className="mb-6 text-4xl">
           {status.includes('verified') ? '✨' : status.includes('Invalid') ? '❌' : '⏳'}

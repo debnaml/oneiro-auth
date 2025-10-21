@@ -72,7 +72,7 @@ export default function InvitePage() {
 
   if (done) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-[50vh]">
+      <div>
         <div className="glass-card w-full text-center">
           <div className="mb-6 text-4xl">🎉</div>
           <h1 className="text-2xl font-bold mb-4 text-primary">Welcome to Oneiro!</h1>
@@ -88,7 +88,7 @@ export default function InvitePage() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-[50vh]">
+    <div>
       <div className="glass-card w-full">
         <div className="text-center mb-6">
           <div className="mb-4 text-3xl">✨</div>

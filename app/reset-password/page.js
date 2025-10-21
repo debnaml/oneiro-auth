@@ -52,7 +52,7 @@ export default function ResetPasswordPage() {
 
   if (done) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-[50vh]">
+      <div>
         <div className="glass-card w-full text-center">
           <div className="mb-6 text-4xl">🎉</div>
           <h1 className="text-2xl font-bold mb-4 text-primary">Password Updated!</h1>
@@ -68,7 +68,7 @@ export default function ResetPasswordPage() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-[50vh]">
+    <div>
       <form onSubmit={handleSubmit} className="glass-card w-full">
         <h1 className="text-2xl font-bold mb-6 text-center text-primary">Reset Password</h1>
         <p className="text-secondary text-center mb-6">

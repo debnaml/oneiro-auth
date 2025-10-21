@@ -26,7 +26,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-[50vh]">
+    <div>
       <div className="glass-card w-full text-center">
         <h1 className="text-3xl font-bold mb-4 text-primary">Auth Portal</h1>
         <p className="text-secondary text-lg mb-8">
