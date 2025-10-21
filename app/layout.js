@@ -12,9 +12,12 @@ export default function RootLayout({ children }) {
         <header className="w-full p-6 relative">
           <div className="max-w-md mx-auto">
             <div className="flex items-center justify-center mb-8 floating">
-              <div className="text-3xl font-bold logo-text">
-                Oneiro
-              </div>
+              <img 
+                src="/Oneiro-Logo.svg" 
+                alt="Oneiro" 
+                className="h-16 w-auto"
+                style={{filter: 'drop-shadow(0 2px 8px rgba(168, 85, 247, 0.3))'}}
+              />
             </div>
           </div>
         </header>
