@@ -8,6 +8,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" style={{background: '#0D0D0D'}}>
+      <head>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="alternate icon" href="/favicon.ico" />
+      </head>
       <body style={{background: '#0D0D0D', color: '#FFFFFF'}} className="min-h-screen">
         <div className="flex flex-col min-h-screen">
           <div className="flex-1 flex flex-col justify-center max-w-md mx-auto w-full px-4">
