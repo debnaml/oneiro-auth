@@ -20,6 +20,8 @@ export default function Home() {
       window.location.href = '/reset-password' + hash;
     } else if (type === 'signup') {
       window.location.href = '/verify' + hash;
+    } else if (type === 'invite') {
+      window.location.href = '/invite' + hash;
     }
   }, []);
 
@@ -33,6 +35,7 @@ export default function Home() {
         <div className="space-y-4 text-sm">
           <div className="feature-item">Email verification</div>
           <div className="feature-item">Password reset</div>
+          <div className="feature-item">User invitations</div>
           <div className="feature-item">Secure authentication</div>
         </div>
         <div className="mt-8 text-muted text-sm">
