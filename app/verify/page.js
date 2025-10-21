@@ -17,11 +17,19 @@ export default function VerifyPage() {
   }, []);
 
   return (
-    <main className="flex flex-col items-center justify-center h-screen text-center">
-      <h1 className="text-2xl font-bold mb-4">{status}</h1>
-      <p className="text-gray-600">
-        You may safely close this window and return to your Oneiro app.
-      </p>
-    </main>
+    <div className="flex flex-col items-center justify-center min-h-[50vh]">
+      <div className="glass-card w-full text-center">
+        <div className="mb-6 text-4xl">
+          {status.includes('verified') ? '✨' : status.includes('Invalid') ? '❌' : '⏳'}
+        </div>
+        <h1 className="text-2xl font-bold mb-4 text-primary">{status}</h1>
+        <p className="text-secondary mb-6">
+          You may safely close this window and return to your Oneiro app.
+        </p>
+        <div className="text-muted text-sm">
+          Continue capturing your dreams
+        </div>
+      </div>
+    </div>
   );
 }

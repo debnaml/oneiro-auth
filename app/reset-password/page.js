@@ -26,36 +26,57 @@ export default function ResetPasswordPage() {
 
   if (done) {
     return (
-      <div className="flex flex-col items-center justify-center h-screen">
-        <h1 className="text-2xl font-bold mb-3">Password Updated!</h1>
-        <p>You can now return to the Oneiro app and log in with your new password.</p>
+      <div className="flex flex-col items-center justify-center min-h-[50vh]">
+        <div className="glass-card w-full text-center">
+          <div className="mb-6 text-4xl">🎉</div>
+          <h1 className="text-2xl font-bold mb-4 text-primary">Password Updated!</h1>
+          <p className="text-secondary mb-6">
+            You can now return to the Oneiro app and log in with your new password.
+          </p>
+          <div className="text-muted text-sm">
+            Your dreams await
+          </div>
+        </div>
       </div>
     );
   }
 
   return (
-    <main className="flex flex-col items-center justify-center h-screen px-4">
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white p-8 rounded-xl shadow max-w-sm w-full"
-      >
-        <h1 className="text-xl font-bold mb-4">Reset your password</h1>
+    <div className="flex flex-col items-center justify-center min-h-[50vh]">
+      <form onSubmit={handleSubmit} className="glass-card w-full">
+        <h1 className="text-2xl font-bold mb-6 text-center text-primary">Reset Password</h1>
+        <p className="text-secondary text-center mb-6">
+          Enter your new password to secure your dream journal
+        </p>
+        
         <input
           type="password"
-          placeholder="New password"
+          placeholder="Enter new password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="border p-2 rounded w-full mb-3"
+          className="input-field mb-4"
+          required
+          minLength={6}
         />
-        {error && <p className="text-red-500 mb-2">{error}</p>}
+        
+        {error && (
+          <div className="error-message mb-4 text-sm">
+            {error}
+          </div>
+        )}
+        
         <button
           type="submit"
-          disabled={!token}
-          className="bg-purple-600 text-white w-full py-2 rounded"
+          disabled={!token || !password}
+          className="btn-primary w-full"
         >
-          Update Password
+          {!token ? 'Loading...' : 'Update Password'}
         </button>
+        
+        <div className="text-muted text-center text-sm mt-4">
+          Make sure your password is secure and memorable
+        </div>
       </form>
-    </main>
+    </div>
   );
 }
