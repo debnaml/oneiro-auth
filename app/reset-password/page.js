@@ -9,12 +9,38 @@ export default function ResetPasswordPage() {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    const hashParams = new URLSearchParams(window.location.hash.substring(1));
-    const access_token = hashParams.get('access_token');
-    if (access_token) {
-      supabase.auth.setSession({ access_token });
-      setToken(access_token);
-    }
+    const handleAuthChange = async () => {
+      // Check for hash parameters (password reset flow)
+      const hashParams = new URLSearchParams(window.location.hash.substring(1));
+      const access_token = hashParams.get('access_token');
+      const type = hashParams.get('type');
+      
+      console.log('Hash params:', { access_token, type });
+      
+      if (access_token && type === 'recovery') {
+        try {
+          const { data, error } = await supabase.auth.setSession({
+            access_token,
+            refresh_token: hashParams.get('refresh_token') || ''
+          });
+          
+          if (error) {
+            console.error('Session error:', error);
+            setError('Invalid or expired reset link');
+          } else {
+            console.log('Session set successfully:', data);
+            setToken(access_token);
+          }
+        } catch (err) {
+          console.error('Auth error:', err);
+          setError('Authentication failed');
+        }
+      } else if (!access_token) {
+        setError('No reset token found. Please use the link from your email.');
+      }
+    };
+
+    handleAuthChange();
   }, []);
 
   async function handleSubmit(e) {

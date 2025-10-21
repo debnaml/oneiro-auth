@@ -15,17 +15,20 @@ A minimal Next.js web companion for the Oneiro app that handles Supabase email v
 ### Local Development
 
 1. Copy `.env.local.example` to `.env.local` and fill in your Supabase credentials:
+
    ```bash
    cp .env.local.example .env.local
    ```
 
 2. Edit `.env.local` with your Supabase project details:
+
    ```bash
    NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
    NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
    ```
 
 3. Install dependencies and run locally:
+
    ```bash
    npm install
    npm run dev

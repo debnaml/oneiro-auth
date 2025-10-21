@@ -6,14 +6,37 @@ export default function VerifyPage() {
   const [status, setStatus] = useState('Verifying...');
 
   useEffect(() => {
-    const hashParams = new URLSearchParams(window.location.hash.substring(1));
-    const access_token = hashParams.get('access_token');
-    if (access_token) {
-      supabase.auth.setSession({ access_token });
-      setStatus('Email verified! You can now log in to Oneiro.');
-    } else {
-      setStatus('Invalid or expired link.');
-    }
+    const handleEmailVerification = async () => {
+      const hashParams = new URLSearchParams(window.location.hash.substring(1));
+      const access_token = hashParams.get('access_token');
+      const type = hashParams.get('type');
+      
+      console.log('Verify params:', { access_token, type });
+      
+      if (access_token && type === 'signup') {
+        try {
+          const { data, error } = await supabase.auth.setSession({
+            access_token,
+            refresh_token: hashParams.get('refresh_token') || ''
+          });
+          
+          if (error) {
+            console.error('Verification error:', error);
+            setStatus('Verification failed. Please try again.');
+          } else {
+            console.log('Email verified successfully:', data);
+            setStatus('Email verified! You can now log in to Oneiro.');
+          }
+        } catch (err) {
+          console.error('Auth error:', err);
+          setStatus('Verification failed. Please try again.');
+        }
+      } else {
+        setStatus('Invalid or expired verification link.');
+      }
+    };
+
+    handleEmailVerification();
   }, []);
 
   return (
